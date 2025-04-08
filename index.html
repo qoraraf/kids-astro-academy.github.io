@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عالم الفضاء للأطفال - تعلم الفلك والفيزياء الفلكية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            color: white;
+        }
+        
+        .planet-card {
+            transition: all 0.3s ease;
+        }
+        
+        .planet-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .quiz-option {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .quiz-option:hover {
+            background-color: #4a5568;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        .rocket {
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .rtl-text {
+            direction: rtl;
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Star background -->
+    <div id="stars-container" class="fixed inset-0 overflow-hidden z-0"></div>
+    
+    <!-- Header -->
+    <header class="relative z-10 py-6 bg-black bg-opacity-70 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <div class="rocket text-yellow-400 text-3xl">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h1 class="text-2xl md:text-3xl font-bold text-yellow-400">عالم الفضاء للأطفال</h1>
+            </div>
+            <nav>
+                <ul class="flex space-x-6 space-x-reverse">
+                    <li><a href="#planets" class="hover:text-yellow-400 transition">الكواكب</a></li>
+                    <li><a href="#stars" class="hover:text-yellow-400 transition">النجوم</a></li>
+                    <li><a href="#technology" class="hover:text-yellow-400 transition">التكنولوجيا</a></li>
+                    <li><a href="#games" class="hover:text-yellow-400 transition">الألعاب</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-yellow-400">استكشف عجائب الكون!</h2>
+                <p class="text-xl mb-8 leading-relaxed">
+                    مرحبًا بكم في رحلتنا المدهشة عبر الفضاء! هنا سوف تتعلمون عن الكواكب، النجوم، المجرات والتكنولوجيا التي تمكننا من استكشاف الكون الواسع.
+                </p>
+                <div class="flex space-x-4 space-x-reverse">
+                    <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full transition transform hover:scale-105">
+                        ابدأ الرحلة <i class="fas fa-play ml-2"></i>
+                    </button>
+                    <button class="border-2 border-yellow-400 hover:bg-yellow-400 hover:text-black text-yellow-400 font-bold py-3 px-6 rounded-full transition transform hover:scale-105">
+                        تعرف أكثر <i class="fas fa-info-circle ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://cdn.pixabay.com/photo/2016/08/19/07/03/background-1604648_1280.jpg" alt="Space illustration" class="rounded-lg shadow-2xl w-full max-w-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Planets Section -->
+    <section id="planets" class="relative z-10 py-16 bg-black bg-opacity-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-yellow-400">نظامنا الشمسي</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Mercury -->
+                <div class="planet-card bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-circle text-gray-500 text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-center">عطارد</h3>
+                    <p class="text-gray-300 mb-4 rtl-text">
+                        أصغر كوكب في نظامنا الشمسي وأقرب إلى الشمس. يومه أطول من سنته!
+                    </p>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg transition">
+                        تعلم المزيد <i class="fas fa-arrow-left ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Venus -->
+                <div class="planet-card bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="w-24 h-24 bg-yellow-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-circle text-yellow-300 text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-center">الزهرة</h3>
+                    <p class="text-gray-300 mb-4 rtl-text">
+                        الكوكب الأكثر سخونة مع غيوم من حامض الكبريتيك. يسمى أحيانًا نجمة الصباح.
+                    </p>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg transition">
+                        تعلم المزيد <i class="fas fa-arrow-left ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Earth -->
+                <div class="planet-card bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="w-24 h-24 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-globe-americas text-blue-400 text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-center">الأرض</h3>
+                    <p class="text-gray-300 mb-4 rtl-text">
+                        منزلنا! الكوكب الوحيد المعروف بوجود حياة. 70% من سطحه مغطى بالماء.
+                    </p>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg transition">
+                        تعلم المزيد <i class="fas fa-arrow-left ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Mars -->
+                <div class="planet-card bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="w-24 h-24 bg-red-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-circle text-red-500 text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-center">المريخ</h3>
+                    <p class="text-gray-300 mb-4 rtl-text">
+                        الكوكب الأحمر. به أكبر بركان في النظام الشمسي وأودية عميقة جدًا.
+                    </p>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-lg transition">
+                        تعلم المزيد <i class="fas fa-arrow-left ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-3 px-8 rounded-full transition">
+                    عرض جميع الكواكب <i class="fas fa-arrow-left ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stars Section -->
+    <section id="stars" class="relative z-10 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-yellow-400">النجوم والمجرات</h2>
+            
+            <div class="flex flex-col lg:flex-row items-center mb-16">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+                    <h3 class="text-2xl font-bold mb-4 text-yellow-300">ما هي النجوم؟</h3>
+                    <p class="text-lg mb-6 leading-relaxed rtl-text">
+                        النجوم هي كرات ضخمة من الغاز الساخن، معظمها من الهيدروجين والهيليوم. تنتج النجوم الضوء والحرارة من التفاعلات النووية في قلوبها. أقرب نجم إلى الأرض هو الشمس!
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed rtl-text">
+                        عندما تنظر إلى السماء ليلاً، فإن معظم النقاط المضيئة التي تراها هي نجوم مثل شمسنا، لكنها أبعد بكثير. بعض النجوم أكبر بمئات المرات من شمسنا، وبعضها أصغر بكثير.
+                    </p>
+                    <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full transition">
+                        تعرف على دورة حياة النجوم <i class="fas fa-arrow-left ml-2"></i>
+                    </button>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-800 rounded-xl p-6 shadow-2xl">
+                        <img src="https://cdn.pixabay.com/photo/2011/12/14/12/17/galaxy-11098_1280.jpg" alt="Stars and galaxies" class="rounded-lg w-full">
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="text-gray-400">صورة لمجرة أندروميدا</span>
+                            <button class="text-yellow-400 hover:text-yellow-300">
+                                <i class="fas fa-expand-alt"></i> تكبير
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 bg-opacity-70 rounded-xl p-8 shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 text-center text-yellow-300">أنواع النجوم</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="text-xl font-bold">العملاق الأحمر</h4>
+                        </div>
+                        <p class="text-gray-300 rtl-text">
+                            نجوم كبيرة حمراء اللون في مرحلة متأخرة من حياتها. عندما تصل شمسنا إلى هذه المرحلة، سوف تبتلع عطارد والزهرة والأرض!
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="text-xl font-bold">القزم الأبيض</h4>
+                        </div>
+                        <p class="text-gray-300 rtl-text">
+                            بقايا نجمية صغيرة وكثيفة جدًا. ملعقة صغيرة من مادة القزم الأبيض تزن مثل فيل!
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-300 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="text-xl font-bold">نجم التسلسل الرئيسي</h4>
+                        </div>
+                        <p class="text-gray-300 rtl-text">
+                            مثل شمسنا، تحرق الهيدروجين في قلبها. تمثل 90% من النجوم في الكون.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Space Technology Section -->
+    <section id="technology" class="relative z-10 py-16 bg-black bg-opacity-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-yellow-400">تكنولوجيا الفضاء</h2>
+            
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-6 text-yellow-300">كيف نستكشف الفضاء؟</h3>
+                
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-1/2 mb-8 lg:mb-0 lg:order-2 lg:pl-8">
+                        <p class="text-lg mb-6 leading-relaxed rtl-text">
+                            يستخدم العلماء العديد من الأدوات المثيرة لاستكشاف الكون. التلسكوبات تسمح لنا برؤية الأجسام البعيدة جدًا، بينما تأخذنا الصواريخ والمركبات الفضائية إلى الفضاء لاستكشاف الكواكب والنجوم عن قرب.
+                        </p>
+                        <p class="text-lg mb-6 leading-relaxed rtl-text">
+                            محطة الفضاء الدولية هي مختبر علمي كبير يدور حول الأرض. يعيش ويعمل رواد الفضاء هناك لعدة أشهر لإجراء تجارب لا يمكن إجراؤها على الأرض.
+                        </p>
+                        <div class="flex space-x-4 space-x-reverse">
+                            <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-full text-sm transition">
+                                <i class="fas fa-space-shuttle mr-2"></i> رحلات الفضاء
+                            </button>
+                            <button class="border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-bold py-2 px-4 rounded-full text-sm transition">
+                                <i class="fas fa-satellite mr-2"></i> الأقمار الصناعية
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 lg:order-1">
+                        <div class="relative">
+                            <img src="https://cdn.pixabay.com/photo/2012/11/28/09/17/rocket-launch-67557_1280.jpg" alt="Rocket launch" class="rounded-lg shadow-xl w-full">
+                            <div class="absolute -bottom-4 -right-4 bg-yellow-400 text-black font-bold py-2 px-4 rounded-full">
+                                <i class="fas fa-rocket mr-2"></i> إطلاق صاروخ
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-6 text-yellow-300">أشهر المهمات الفضائية</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center text-2xl mr-4">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h4 class="text-xl font-bold">أبولو 11</h4>
+                    </div>
+                    <p class="text-gray-300 mb-4 rtl-text">
+                        أول مهمة تهبط بالبشر على القمر في 20 يوليو 1969. قال نيل أرمسترونج: "هذه خطوة صغيرة للإنسان، قفزة عملاقة للبشرية".
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">1969</span>
+                        <button class="text-yellow-400 hover:text-yellow-300 text-sm">
+                            التفاصيل <i class="fas fa-arrow-left ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-red-900 rounded-full flex items-center justify-center text-2xl mr-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="text-xl font-bold">المسبار بيرسيفيرانس</h4>
+                    </div>
+                    <p class="text-gray-300 mb-4 rtl-text">
+                        مسبار ناسا الذي هبط على المريخ في 2021 للبحث عن علامات الحياة القديمة وجمع عينات لإعادتها إلى الأرض.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">2020</span>
+                        <button class="text-yellow-400 hover:text-yellow-300 text-sm">
+                            التفاصيل <i class="fas fa-arrow-left ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-purple-900 rounded-full flex items-center justify-center text-2xl mr-4">
+                            <i class="fas fa-hubble"></i>
+                        </div>
+                        <h4 class="text-xl font-bold">تلسكوب هابل</h4>
+                    </div>
+                    <p class="text-gray-300 mb-4 rtl-text">
+                        أطلق في 1990، قدم بعض من أكثر الصور تفصيلاً للكون البعيد، غيرت فهمنا للكون.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">1990</span>
+                        <button class="text-yellow-400 hover:text-yellow-300 text-sm">
+                            التفاصيل <i class="fas fa-arrow-left ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games & Quiz Section -->
+    <section id="games" class="relative z-10 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-yellow-400">تعلم من خلال اللعب</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Quiz -->
+                <div class="bg-gray-800 bg-opacity-80 rounded-xl p-8 shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-yellow-300">اختبر معلوماتك عن الفضاء</h3>
+                    
+                    <div id="quiz-container">
+                        <div id="quiz-question" class="text-xl mb-6 rtl-text">
+                            كم عدد الكواكب في نظامنا الشمسي؟
+                        </div>
+                        
+                        <div id="quiz-options" class="space-y-4">
+                            <div class="quiz-option bg-gray-700 hover:bg-gray-600 rounded-lg p-4" data-correct="false">
+                                <span class="font-bold mr-2">أ)</span> 7 كواكب
+                            </div>
+                            <div class="quiz-option bg-gray-700 hover:bg-gray-600 rounded-lg p-4" data-correct="false">
+                                <span class="font-bold mr-2">ب)</span> 9 كواكب
+                            </div>
+                            <div class="quiz-option bg-gray-700 hover:bg-gray-600 rounded-lg p-4" data-correct="true">
+                                <span class="font-bold mr-2">ج)</span> 8 كواكب
+                            </div>
+                            <div class="quiz-option bg-gray-700 hover:bg-gray-600 rounded-lg p-4" data-correct="false">
+                                <span class="font-bold mr-2">د)</span> 10 كواكب
+                            </div>
+                        </div>
+                        
+                        <div id="quiz-feedback" class="mt-6 hidden">
+                            <div class="p-4 rounded-lg bg-green-900 text-green-200 flex items-center">
+                                <i class="fas fa-check-circle text-2xl mr-3"></i>
+                                <span>إجابة صحيحة! يوجد 8 كواكب في نظامنا الشمسي.</span>
+                            </div>
+                            <button id="next-question" class="mt-4 bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-6 rounded-full transition">
+                                السؤال التالي <i class="fas fa-arrow-left ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Memory Game -->
+                <div class="bg-gray-800 bg-opacity-80 rounded-xl p-8 shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-yellow-300">لعبة الذاكرة: تطابق الكواكب</h3>
+                    
+                    <div class="grid grid-cols-4 gap-3">
+                        <div class="memory-card h-20 bg-gray-700 rounded-lg flex items-center justify-center cursor-pointer" data-planet="mercury">
+                            <i class="fas fa-question text-2xl"></i>
+                        </div>
+                        <div class="memory-card h-20 bg-gray-700 rounded-lg flex items-center justify-center cursor-pointer" data-planet="venus">
+                            <i class="fas fa-question text-2xl"></i>
+                        </div>
+                        <div class="memory-card h-20 bg-gray-700 rounded-lg flex items-center justify-center cursor-pointer" data-planet="earth">
+                            <i class="fas fa-question text-2xl"></i>
+                        </div>
+                        <div class="memory-card h-20 bg-gray-700 rounded-lg flex items-center justify-center cursor-pointer" data-planet="mars">
+                            <i class="fas fa-question text-2xl"></i>
+                        </div>
+                        <div class="memory-card h-20 bg-gray-700 rounded-lg flex items-center justify-center cursor-pointer" data-planet="jupiter">
+                            <i class="fas fa-question text-2xl"></i>
+                        </div>
+                        <div class="memory-card h-20 bg-gray-700 rounded-lg flex items-center justify-center cursor-pointer" data-planet="saturn">
+                            <i class="fas fa-question text-2xl"></i>
+                        </div>
+                        <div class="memory-card h-20 bg-gray-700 rounded-lg flex items-center justify-center cursor-pointer" data-planet="uranus">
+                            <i class="fas fa-question text-2xl"></i>
+                        </div>
+                        <div class="memory-card h-20 bg-gray-700 rounded-lg flex items-center justify-center cursor-pointer" data-planet="neptune">
+                            <i class="fas fa-question text-2xl"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <button id="reset-game" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-full transition">
+                            إعادة اللعبة <i class="fas fa-redo ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-12 bg-black bg-opacity-80">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-yellow-400">عالم الفضاء للأطفال</h3>
+                    <p class="text-gray-400 rtl-text">
+                        موقع تعليمي تفاعلي مصمم لمساعدة الأطفال على استكشاف عجائب الكون بطريقة ممتعة وجذابة.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">روابط سريعة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition">الصفحة الرئيسية</a></li>
+                        <li><a href="#planets" class="text-gray-400 hover:text-yellow-400 transition">الكواكب</a></li>
+                        <li><a href="#stars" class="text-gray-400 hover:text-yellow-400 transition">النجوم</a></li>
+                        <li><a href="#technology" class="text-gray-400 hover:text-yellow-400 transition">تكنولوجيا الفضاء</a></li>
+                        <li><a href="#games" class="text-gray-400 hover:text-yellow-400 transition">الألعاب</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">موارد إضافية</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition">كتب الفضاء للأطفال</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition">أفلام وثائقية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition">أحداث فلكية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition">مسابقات</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-white">تواصل معنا</h4>
+                    <div class="flex space-x-4 space-x-reverse mb-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-yellow-500 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-yellow-500 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-yellow-500 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-yellow-500 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">
+                        <i class="fas fa-envelope mr-2"></i> info@spaceforkids.com
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>© 2023 عالم الفضاء للأطفال. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create stars background
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random size between 1 and 3 pixels
+                const size = Math.random() * 2 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 2 and 5 seconds
+                star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+                
+                container.appendChild(star);
+            }
+        }
+        
+        // Quiz functionality
+        function setupQuiz() {
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            const quizFeedback = document.getElementById('quiz-feedback');
+            const nextQuestionBtn = document.getElementById('next-question');
+            
+            quizOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const isCorrect = this.getAttribute('data-correct') === 'true';
+                    
+                    if (isCorrect) {
+                        this.classList.add('bg-green-800');
+                        this.classList.remove('bg-gray-700', 'hover:bg-gray-600');
+                    } else {
+                        this.classList.add('bg-red-800');
+                        this.classList.remove('bg-gray-700', 'hover:bg-gray-600');
+                    }
+                    
+                    quizFeedback.classList.remove('hidden');
+                });
+            });
+            
+            nextQuestionBtn.addEventListener('click', function() {
+                // In a real app, you would load the next question here
+                alert('سيتم تحميل السؤال التالي في التطبيق الكامل!');
+            });
+        }
+        
+        // Memory game functionality
+        function setupMemoryGame() {
+            const memoryCards = document.querySelectorAll('.memory-card');
+            const resetGameBtn = document.getElementById('reset-game');
+            let hasFlippedCard = false;
+            let lockBoard = false;
+            let firstCard, secondCard;
+            
+            // Planet icons
+            const planetIcons = {
+                mercury: 'fas fa-circle text-gray-500 text-2xl',
+                venus: 'fas fa-circle text-yellow-300 text-2xl',
+                earth: 'fas fa-globe-americas text-blue-400 text-2xl',
+                mars: 'fas fa-circle text-red-500 text-2xl',
+                jupiter: 'fas fa-circle text-yellow-600 text-2xl',
+                saturn: 'fas fa-ringed-planet text-yellow-200 text-2xl',
+                uranus: 'fas fa-circle text-teal-300 text-2xl',
+                neptune: 'fas fa-circle text-blue-500 text-2xl'
+            };
+            
+            // Create pairs
+            memoryCards.forEach(card => {
+                const planet = card.getAttribute('data-planet');
+                card.innerHTML = `<i class="${planetIcons[planet]}"></i>`;
+                card.setAttribute('data-planet-name', planet);
+                card.classList.add('hidden');
+            });
+            
+            // Shuffle cards
+            function shuffleCards() {
+                memoryCards.forEach(card => {
+                    const randomPos = Math.floor(Math.random() * memoryCards.length);
+                    card.style.order = randomPos;
+                    card.classList.add('hidden');
+                    card.innerHTML = '<i class="fas fa-question text-2xl"></i>';
+                });
+            }
+            
+            // Flip card
+            function flipCard() {
+                if (lockBoard) return;
+                if (this === firstCard) return;
+                
+                this.classList.remove('hidden');
+                this.innerHTML = `<i class="${planetIcons[this.getAttribute('data-planet')]}"></i>`;
+                
+                if (!hasFlippedCard) {
+                    // First click
+                    hasFlippedCard = true;
+                    firstCard = this;
+                    return;
+                }
+                
+                // Second click
+                secondCard = this;
+                checkForMatch();
+            }
+            
+            // Check for match
+            function checkForMatch() {
+                const isMatch = firstCard.getAttribute('data-planet') === secondCard.getAttribute('data-planet');
+                
+                if (isMatch) {
+                    disableCards();
+                } else {
+                    unflipCards();
+                }
+            }
+            
+            function disableCards() {
+                firstCard.removeEventListener('click', flipCard);
+                secondCard.removeEventListener('click', flipCard);
+                
+                resetBoard();
+            }
+            
+            function unflipCards() {
+                lockBoard = true;
+                
+                setTimeout(() => {
+                    firstCard.classList.add('hidden');
+                    secondCard.classList.add('hidden');
+                    firstCard.innerHTML = '<i class="fas fa-question text-2xl"></i>';
+                    secondCard.innerHTML = '<i class="fas fa-question text-2xl"></i>';
+                    
+                    resetBoard();
+                }, 1000);
+            }
+            
+            function resetBoard() {
+                [hasFlippedCard, lockBoard] = [false, false];
+                [firstCard, secondCard] = [null, null];
+            }
+            
+            // Initialize game
+            function initGame() {
+                shuffleCards();
+                memoryCards.forEach(card => card.addEventListener('click', flipCard));
+            }
+            
+            // Reset game
+            resetGameBtn.addEventListener('click', function() {
+                memoryCards.forEach(card => {
+                    card.classList.add('hidden');
+                    card.innerHTML = '<i class="fas fa-question text-2xl"></i>';
+                    card.addEventListener('click', flipCard);
+                });
+                
+                setTimeout(shuffleCards, 500);
+            });
+            
+            // Start the game
+            initGame();
+        }
+        
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            setupQuiz();
+            setupMemoryGame();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
